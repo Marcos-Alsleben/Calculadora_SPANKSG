@@ -12,6 +12,8 @@ import javax.swing.JOptionPane;
  */
 public class FrmCalculadora extends javax.swing.JFrame {
 
+    private JdInfo info;
+
     /**
      * Creates new form FrmCalculadora
      */
@@ -466,8 +468,14 @@ public class FrmCalculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_CalcularActionPerformed
 
     private void btn_infoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_infoActionPerformed
-        JdInfo info = new JdInfo();
-        info.setVisible(true);
+        if (info == null) {
+            info = new JdInfo();
+        }
+
+        if (!info.isVisible()) {
+            info.setVisible(true);
+        }
+
     }//GEN-LAST:event_btn_infoActionPerformed
 
     /**
