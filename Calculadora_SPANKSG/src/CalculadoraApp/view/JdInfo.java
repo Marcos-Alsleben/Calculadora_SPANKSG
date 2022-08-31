@@ -1,20 +1,19 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
 package CalculadoraApp.view;
-
 
 /**
  *
  * @author gmg
  */
-public class FrmInfo extends javax.swing.JFrame {
+public class JdInfo extends javax.swing.JDialog {
 
     /**
-     * Creates new form FrmInfo
+     * Creates new form JdInfo
      */
-    public FrmInfo() {
+    public JdInfo() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -34,8 +33,6 @@ public class FrmInfo extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Informações");
-        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(65, 65, 65));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -106,22 +103,17 @@ public class FrmInfo extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmInfo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JdInfo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmInfo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JdInfo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmInfo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JdInfo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmInfo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JdInfo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrmInfo().setVisible(true);
-            }
-        });
+        /* Create and display the dialog */
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
