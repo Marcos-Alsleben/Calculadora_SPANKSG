@@ -4,6 +4,8 @@
  */
 package CalculadoraApp.view;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author mrs_a
@@ -37,20 +39,20 @@ public class FrmCalculadora extends javax.swing.JFrame {
         jl_substrato = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jl_pesoTinta2 = new javax.swing.JLabel();
-        jFormattedTextField3 = new javax.swing.JFormattedTextField();
+        txt_tiragem = new javax.swing.JFormattedTextField();
         jl_pesoTinta3 = new javax.swing.JLabel();
-        jFormattedTextField4 = new javax.swing.JFormattedTextField();
+        txt_grafismo = new javax.swing.JFormattedTextField();
         jPanel4 = new javax.swing.JPanel();
         jl_pesoTinta1 = new javax.swing.JLabel();
         jl_pesoTinta4 = new javax.swing.JLabel();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        txt_cartaoH = new javax.swing.JFormattedTextField();
         jl_pesoTinta5 = new javax.swing.JLabel();
-        jFormattedTextField2 = new javax.swing.JFormattedTextField();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        txt_cartaoV = new javax.swing.JFormattedTextField();
+        btn_Calcular = new javax.swing.JButton();
+        btn_Limpar = new javax.swing.JButton();
+        btn_info = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lb_resultado = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Calculadora SPANKSG");
@@ -70,7 +72,8 @@ public class FrmCalculadora extends javax.swing.JFrame {
         cb_processoImpressao.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         cb_processoImpressao.setForeground(new java.awt.Color(255, 255, 255));
         cb_processoImpressao.setMaximumRowCount(3);
-        cb_processoImpressao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Tipografia", "Offset" }));
+        cb_processoImpressao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tipografia", "Offset" }));
+        cb_processoImpressao.setSelectedIndex(1);
 
         jl_pesoTinta.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jl_pesoTinta.setForeground(new java.awt.Color(255, 255, 255));
@@ -80,13 +83,14 @@ public class FrmCalculadora extends javax.swing.JFrame {
         cb_pesoTinta.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         cb_pesoTinta.setForeground(new java.awt.Color(255, 255, 255));
         cb_pesoTinta.setMaximumRowCount(5);
-        cb_pesoTinta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Cores de Escala/Preto e Prata", "Cores Transparentes ( meio tons )", "Cores Opacas ( meio tons )", "Branco Opaco/Ouro" }));
+        cb_pesoTinta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cores de Escala/Preto e Prata", "Cores Transparentes ( meio tons )", "Cores Opacas ( meio tons )", "Branco Opaco/Ouro" }));
 
         cb_substrato.setBackground(new java.awt.Color(65, 65, 65));
         cb_substrato.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         cb_substrato.setForeground(new java.awt.Color(255, 255, 255));
         cb_substrato.setMaximumRowCount(9);
-        cb_substrato.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Couché de 1º qualidade", "Couché de qualidade inferior", "Semi Acetinado", "Cartão Duplex", "Cartões Coated", "Papel Offset de Boa Qualidade", "Papel Jornal", "Papéis e Cartões tipo Kraft" }));
+        cb_substrato.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Couché de 1º qualidade", "Couché de qualidade inferior", "Semi Acetinado", "Cartão Duplex", "Cartões Coated", "Papel Offset de Boa Qualidade", "Papel Jornal", "Papéis e Cartões tipo Kraft" }));
+        cb_substrato.setSelectedIndex(4);
         cb_substrato.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jl_substrato.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -100,24 +104,24 @@ public class FrmCalculadora extends javax.swing.JFrame {
         jl_pesoTinta2.setForeground(new java.awt.Color(255, 255, 255));
         jl_pesoTinta2.setText("*Tiragem");
 
-        jFormattedTextField3.setBackground(new java.awt.Color(63, 63, 63));
-        jFormattedTextField3.setForeground(new java.awt.Color(255, 255, 255));
-        jFormattedTextField3.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
-        jFormattedTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jFormattedTextField3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        txt_tiragem.setBackground(new java.awt.Color(63, 63, 63));
+        txt_tiragem.setForeground(new java.awt.Color(255, 255, 255));
+        txt_tiragem.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#.##"))));
+        txt_tiragem.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_tiragem.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
         jl_pesoTinta3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jl_pesoTinta3.setForeground(new java.awt.Color(255, 255, 255));
         jl_pesoTinta3.setText("*Grafismo (%)");
 
-        jFormattedTextField4.setBackground(new java.awt.Color(63, 63, 63));
-        jFormattedTextField4.setForeground(new java.awt.Color(255, 255, 255));
-        jFormattedTextField4.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
-        jFormattedTextField4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jFormattedTextField4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jFormattedTextField4.addActionListener(new java.awt.event.ActionListener() {
+        txt_grafismo.setBackground(new java.awt.Color(63, 63, 63));
+        txt_grafismo.setForeground(new java.awt.Color(255, 255, 255));
+        txt_grafismo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#.##"))));
+        txt_grafismo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_grafismo.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        txt_grafismo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextField4ActionPerformed(evt);
+                txt_grafismoActionPerformed(evt);
             }
         });
 
@@ -129,11 +133,11 @@ public class FrmCalculadora extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jl_pesoTinta2)
-                    .addComponent(jFormattedTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_tiragem, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jl_pesoTinta3)
-                    .addComponent(jFormattedTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_grafismo, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -145,8 +149,8 @@ public class FrmCalculadora extends javax.swing.JFrame {
                     .addComponent(jl_pesoTinta2))
                 .addGap(0, 0, 0)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jFormattedTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFormattedTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_grafismo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_tiragem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -161,21 +165,21 @@ public class FrmCalculadora extends javax.swing.JFrame {
         jl_pesoTinta4.setForeground(new java.awt.Color(255, 255, 255));
         jl_pesoTinta4.setText("H");
 
-        jFormattedTextField1.setBackground(new java.awt.Color(63, 63, 63));
-        jFormattedTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
-        jFormattedTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jFormattedTextField1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        txt_cartaoH.setBackground(new java.awt.Color(63, 63, 63));
+        txt_cartaoH.setForeground(new java.awt.Color(255, 255, 255));
+        txt_cartaoH.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#.##"))));
+        txt_cartaoH.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_cartaoH.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
         jl_pesoTinta5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jl_pesoTinta5.setForeground(new java.awt.Color(255, 255, 255));
         jl_pesoTinta5.setText("V");
 
-        jFormattedTextField2.setBackground(new java.awt.Color(63, 63, 63));
-        jFormattedTextField2.setForeground(new java.awt.Color(255, 255, 255));
-        jFormattedTextField2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
-        jFormattedTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jFormattedTextField2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        txt_cartaoV.setBackground(new java.awt.Color(63, 63, 63));
+        txt_cartaoV.setForeground(new java.awt.Color(255, 255, 255));
+        txt_cartaoV.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#.##"))));
+        txt_cartaoV.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_cartaoV.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -188,11 +192,11 @@ public class FrmCalculadora extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jl_pesoTinta4)
                         .addGap(0, 0, 0)
-                        .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txt_cartaoH, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jl_pesoTinta5)
                         .addGap(0, 0, 0)
-                        .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txt_cartaoV, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -202,41 +206,56 @@ public class FrmCalculadora extends javax.swing.JFrame {
                 .addComponent(jl_pesoTinta1)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jl_pesoTinta5)
-                    .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_cartaoV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_cartaoH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jl_pesoTinta4))
                 .addContainerGap())
         );
 
-        jButton4.setBackground(new java.awt.Color(0, 0, 0));
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Calcular.png"))); // NOI18N
-        jButton4.setToolTipText("Calcular");
-        jButton4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton4.setBorderPainted(false);
-        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btn_Calcular.setBackground(new java.awt.Color(0, 0, 0));
+        btn_Calcular.setForeground(new java.awt.Color(255, 255, 255));
+        btn_Calcular.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Calcular.png"))); // NOI18N
+        btn_Calcular.setToolTipText("Calcular");
+        btn_Calcular.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn_Calcular.setBorderPainted(false);
+        btn_Calcular.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_Calcular.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn_Calcular.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btn_Calcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_CalcularActionPerformed(evt);
+            }
+        });
 
-        jButton5.setBackground(new java.awt.Color(0, 0, 0));
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Limpar.png"))); // NOI18N
-        jButton5.setToolTipText("Limpar");
-        jButton5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton5.setBorderPainted(false);
-        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btn_Limpar.setBackground(new java.awt.Color(0, 0, 0));
+        btn_Limpar.setForeground(new java.awt.Color(255, 255, 255));
+        btn_Limpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Limpar.png"))); // NOI18N
+        btn_Limpar.setToolTipText("Limpar");
+        btn_Limpar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn_Limpar.setBorderPainted(false);
+        btn_Limpar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_Limpar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn_Limpar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btn_Limpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_LimparActionPerformed(evt);
+            }
+        });
 
-        jButton6.setBackground(new java.awt.Color(0, 0, 0));
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Info.png"))); // NOI18N
-        jButton6.setToolTipText("Informações");
-        jButton6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton6.setBorderPainted(false);
-        jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btn_info.setBackground(new java.awt.Color(0, 0, 0));
+        btn_info.setForeground(new java.awt.Color(255, 255, 255));
+        btn_info.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Info.png"))); // NOI18N
+        btn_info.setToolTipText("Informações");
+        btn_info.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn_info.setBorderPainted(false);
+        btn_info.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_info.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn_info.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btn_info.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_infoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -244,24 +263,26 @@ public class FrmCalculadora extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cb_pesoTinta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jl_pesoTinta)
-                    .addComponent(cb_processoImpressao, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jl_processoImpressao)
-                    .addComponent(cb_substrato, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jl_substrato))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cb_processoImpressao, javax.swing.GroupLayout.Alignment.CENTER, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cb_substrato, javax.swing.GroupLayout.Alignment.CENTER, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cb_pesoTinta, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jl_pesoTinta, javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(jl_processoImpressao, javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(jl_substrato, javax.swing.GroupLayout.Alignment.CENTER)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(btn_info, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(btn_Limpar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(btn_Calcular, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -284,9 +305,9 @@ public class FrmCalculadora extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(9, 9, 9)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btn_Calcular, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_Limpar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_info, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -294,13 +315,12 @@ public class FrmCalculadora extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setText("(*) Campo de seleção e preenchemento obrigatório.");
 
-        jLabel2.setBackground(new java.awt.Color(63, 63, 63));
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(51, 51, 255));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("456Kg");
-        jLabel2.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-        jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lb_resultado.setBackground(new java.awt.Color(63, 63, 63));
+        lb_resultado.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        lb_resultado.setForeground(new java.awt.Color(51, 51, 255));
+        lb_resultado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lb_resultado.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        lb_resultado.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -309,7 +329,7 @@ public class FrmCalculadora extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lb_resultado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
@@ -321,7 +341,7 @@ public class FrmCalculadora extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lb_resultado, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -343,9 +363,112 @@ public class FrmCalculadora extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jFormattedTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField4ActionPerformed
+    private void txt_grafismoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_grafismoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextField4ActionPerformed
+    }//GEN-LAST:event_txt_grafismoActionPerformed
+
+    private void btn_LimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_LimparActionPerformed
+
+        lb_resultado.setText("");
+        cb_pesoTinta.setSelectedIndex(0);
+        cb_processoImpressao.setSelectedIndex(1);
+        cb_substrato.setSelectedIndex(4);
+        txt_cartaoH.setText("");
+        txt_cartaoV.setText("");
+        txt_grafismo.setText("");
+        txt_tiragem.setText("");
+
+    }//GEN-LAST:event_btn_LimparActionPerformed
+
+    private void btn_CalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CalcularActionPerformed
+
+        if ("".equals(txt_cartaoH.getText())) {
+            JOptionPane.showMessageDialog(null, "Informe o tamanho horizontal do cartão!", "", 2);
+        } else {
+            if ("".equals(txt_cartaoV.getText())) {
+                JOptionPane.showMessageDialog(null, "Informe o tamanho vertical do cartão!", "", 2);
+            } else {
+                if ("".equals(txt_tiragem.getText())) {
+                    JOptionPane.showMessageDialog(null, "Informe a quantidade de tiragem!", "", 2);
+                } else {
+                    if ("".equals(txt_grafismo.getText())) {
+                        JOptionPane.showMessageDialog(null, "Informe a porcentagem de grafismo!", "", 2);
+                    } else {
+                        float s = 0, p = 0, a = 0, n = 0, k = 0, sg = 0;
+                        switch (cb_substrato.getSelectedIndex()) {
+                            case 0:
+                                s = (float) 1.0;
+                                break;
+                            case 1:
+                                s = (float) 1.2;
+                                break;
+                            case 2:
+                                s = (float) 1.4;
+                                break;
+                            case 3:
+                                s = (float) 2.0;
+                                break;
+                            case 4:
+                                s = (float) 1.5;
+                                break;
+                            case 5:
+                                s = (float) 1.6;
+                                break;
+                            case 6:
+                                s = (float) 1.8;
+                                break;
+                            case 7:
+                                s = (float) 2.2;
+                                break;
+                        }
+
+                        switch (cb_processoImpressao.getSelectedIndex()) {
+                            case 0:
+                                p = (float) 1.0;
+                                break;
+                            case 1:
+                                p = (float) 0.5;
+                                break;
+                        }
+
+                        switch (cb_pesoTinta.getSelectedIndex()) {
+                            case 0:
+                                sg = (float) 1.0;
+                                break;
+                            case 1:
+                                sg = (float) 1.2;
+                                break;
+                            case 2:
+                                sg = (float) 1.7;
+                                break;
+                            case 3:
+                                sg = (float) 2.0;
+                                break;
+                        }
+
+                        a = (Float.parseFloat(txt_cartaoH.getText().replace(",", ".")) * Float.parseFloat(txt_cartaoV.getText().replace(",", "."))) / 1000000;
+                        n = Float.parseFloat(txt_tiragem.getText().replace(",", "."));
+                        k = Float.parseFloat(txt_grafismo.getText().replace(",", ".")) / 100;
+                        float resultado = (s * p * a * n * k * sg) / 353;
+                        lb_resultado.setText(String.format("%.2f", resultado) + "Kg");
+
+                        //System.out.println("S = " + s);
+                        //System.out.println("P = " + p);
+                        //System.out.println("A = " + a);
+                        //System.out.println("K = " + k);
+                        //System.out.println("SG = " + sg);
+                    }
+                }
+            }
+        }
+
+
+    }//GEN-LAST:event_btn_CalcularActionPerformed
+
+    private void btn_infoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_infoActionPerformed
+        FrmInfo frm = new FrmInfo();
+        frm.setVisible(true);
+    }//GEN-LAST:event_btn_infoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -383,18 +506,13 @@ public class FrmCalculadora extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_Calcular;
+    private javax.swing.JButton btn_Limpar;
+    private javax.swing.JButton btn_info;
     private javax.swing.JComboBox<String> cb_pesoTinta;
     private javax.swing.JComboBox<String> cb_processoImpressao;
     private javax.swing.JComboBox<String> cb_substrato;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
-    private javax.swing.JFormattedTextField jFormattedTextField2;
-    private javax.swing.JFormattedTextField jFormattedTextField3;
-    private javax.swing.JFormattedTextField jFormattedTextField4;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -407,5 +525,11 @@ public class FrmCalculadora extends javax.swing.JFrame {
     private javax.swing.JLabel jl_pesoTinta5;
     private javax.swing.JLabel jl_processoImpressao;
     private javax.swing.JLabel jl_substrato;
+    private javax.swing.JLabel lb_resultado;
+    private javax.swing.JFormattedTextField txt_cartaoH;
+    private javax.swing.JFormattedTextField txt_cartaoV;
+    private javax.swing.JFormattedTextField txt_grafismo;
+    private javax.swing.JFormattedTextField txt_tiragem;
     // End of variables declaration//GEN-END:variables
+
 }
