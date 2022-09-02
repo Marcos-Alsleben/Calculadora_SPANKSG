@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
  * @author mrs_a
  */
 public class FrmCalculadora extends javax.swing.JFrame {
-
+    
     private JdInfo info;
 
     /**
@@ -370,7 +370,7 @@ public class FrmCalculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_grafismoActionPerformed
 
     private void btn_LimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_LimparActionPerformed
-
+        
         lb_resultado.setText("");
         cb_pesoTinta.setSelectedIndex(0);
         cb_processoImpressao.setSelectedIndex(1);
@@ -383,7 +383,7 @@ public class FrmCalculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_LimparActionPerformed
 
     private void btn_CalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CalcularActionPerformed
-
+        
         if ("".equals(txt_cartaoH.getText())) {
             JOptionPane.showMessageDialog(null, "Informe o tamanho horizontal do cartão!", "", 2);
         } else {
@@ -423,7 +423,7 @@ public class FrmCalculadora extends javax.swing.JFrame {
                                 s = (float) 2.2;
                                 break;
                         }
-
+                        
                         switch (cb_processoImpressao.getSelectedIndex()) {
                             case 0:
                                 p = (float) 1.0;
@@ -432,7 +432,7 @@ public class FrmCalculadora extends javax.swing.JFrame {
                                 p = (float) 0.5;
                                 break;
                         }
-
+                        
                         switch (cb_pesoTinta.getSelectedIndex()) {
                             case 0:
                                 sg = (float) 1.0;
@@ -447,7 +447,7 @@ public class FrmCalculadora extends javax.swing.JFrame {
                                 sg = (float) 2.0;
                                 break;
                         }
-
+                        
                         a = (Float.parseFloat(txt_cartaoH.getText().replace(",", ".")) * Float.parseFloat(txt_cartaoV.getText().replace(",", "."))) / 1000000;
                         n = Float.parseFloat(txt_tiragem.getText().replace(",", "."));
                         k = Float.parseFloat(txt_grafismo.getText().replace(",", ".")) / 100;
@@ -463,18 +463,18 @@ public class FrmCalculadora extends javax.swing.JFrame {
                 }
             }
         }
-
+        
 
     }//GEN-LAST:event_btn_CalcularActionPerformed
 
     private void btn_infoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_infoActionPerformed
         if (info == null) {
             info = new JdInfo();
-        }
-
-        if (!info.isVisible()) {
             info.setVisible(true);
         }
+
+        info.setVisible(true);
+
 
     }//GEN-LAST:event_btn_infoActionPerformed
 
